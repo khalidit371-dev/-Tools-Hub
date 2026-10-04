@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tools Hub Pro</title>
+
+<!-- SEO -->
+<meta name="description" content="أفضل موقع أدوات مجانية: حاسبة، تايمر، حساب العمر، تحويل العملات، حساب الأيام">
+<meta name="keywords" content="حاسبة, تايمر, حساب العمر, أدوات, تحويل العملات">
+
+<!-- ✅ كود AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7230340059728985"
+crossorigin="anonymous"></script>
+
+<style>
+:root {
+  --bg:#f4f6f9;
+  --card:#fff;
+  --text:#000;
+}
+.dark {
+  --bg:#1e1e2f;
+  --card:#2c2c3e;
+  --text:#fff;
+}
+body {
+  margin:0;
+  font-family:Arial;
+  direction:rtl;
+  background:var(--bg);
+  color:var(--text);
+}
+nav {
+  background:#4e54c8;
+  color:#fff;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+}
+.container {
+  max-width:1000px;
+  margin:auto;
+  padding:20px;
+}
+.card {
+  background:var(--card);
+  padding:20px;
+  margin-bottom:20px;
+  border-radius:12px;
+}
+button {
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  margin:5px;
+}
+.ad {
+  background:#ddd;
+  padding:25px;
+  text-align:center;
+  margin:20px 0;
+}
+.modal {
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(6px);
+}
+.modal-content {
+  background:var(--card);
+  color:var(--text);
+  margin:8% auto;
+  padding:20px;
+  width:90%;
+  max-width:500px;
+  border-radius:15px;
+}
+.close {
+  float:left;
+  cursor:pointer;
+  font-size:20px;
+  background:red;
+  color:white;
+  border-radius:50%;
+  padding:5px 10px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<span>🚀 Tools Hub</span>
+<button onclick="toggleDark()">🌙</button>
+</nav>
+
+<div class="container">
+
+<!-- وصف مهم للقبول -->
+<p>
+موقع يقدم أدوات مجانية مثل الحاسبة، التايمر، حساب العمر وتحويل العملات
+لمساعدتك في الاستخدام اليومي بسهولة.
+</p>
+
+<div class="ad">AdSense هنا</div>
+
+<div class="card">
+<h3>🧮 آلة حاسبة</h3>
+<p>آلة حاسبة بسيطة لإجراء العمليات الحسابية بسرعة.</p>
+<input id="screen" disabled><br>
+<button onclick="add('1')">1</button>
+<button onclick="add('2')">2</button>
+<button onclick="add('3')">3</button>
+<button onclick="add('+')">+</button><br>
+<button onclick="add('4')">4</button>
+<button onclick="add('5')">5</button>
+<button onclick="add('6')">6</button>
+<button onclick="add('-')">-</button><br>
+<button onclick="add('7')">7</button>
+<button onclick="add('8')">8</button>
+<button onclick="add('9')">9</button>
+<button onclick="add('*')">*</button><br>
+<button onclick="add('0')">0</button>
+<button onclick="calc()">=</button>
+<button onclick="clearS()">C</button>
+<button onclick="add('/')">/</button>
+</div>
+
+<div class="card">
+<h3>⏱️ تايمر</h3>
+<p>استخدم التايمر لحساب الوقت بسهولة.</p>
+<input id="time" placeholder="ثواني">
+<button onclick="start()">تشغيل</button>
+<button onclick="stop()">إيقاف</button>
+<button onclick="reset()">إعادة</button>
+<p id="t"></p>
+</div>
+
+<div class="card">
+<h3>🎂 حساب العمر</h3>
+<p>احسب عمرك بسهولة من تاريخ الميلاد.</p>
+<input type="date" id="birth">
+<button onclick="age()">احسب</button>
+<p id="a"></p>
+</div>
+
+<div class="card">
+<h3>📅 حساب الأيام</h3>
+<p>احسب عدد الأيام بين تاريخين.</p>
+<input type="date" id="s">
+<input type="date" id="e">
+<select id="type">
+<option value="n">عادي</option>
+<option value="w">عمل</option>
+</select>
+<button onclick="days()">احسب</button>
+<p id="d"></p>
+</div>
+
+<div class="card">
+<h3>💱 تحويل العملات</h3>
+<p>تحويل العملات إلى الدينار الأردني.</p>
+<input id="money">
+<select id="cur">
+<option value="0.71">USD</option>
+<option value="0.76">EUR</option>
+<option value="2.66">SAR</option>
+</select>
+<button onclick="conv()">تحويل</button>
+<p id="c"></p>
+</div>
+
+</div>
+
+<footer style="text-align:center;padding:15px;">
+<a href="#" onclick="openModal('aboutModal')">من نحن</a> |
+<a href="#" onclick="openModal('privacyModal')">سياسة الخصوصية</a>
+</footer>
+
+<!-- Modals -->
+<div id="aboutModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('aboutModal')">×</span>
+<h2>من نحن</h2>
+<p>نقدم أدوات مجانية تساعد المستخدمين في الحسابات اليومية.</p>
+</div>
+</div>
+
+<div id="privacyModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('privacyModal')">×</span>
+<h2>سياسة الخصوصية</h2>
+<p>نستخدم خدمات مثل Google AdSense لعرض الإعلانات.</p>
+</div>
+</div>
+
+<script>
+function toggleDark(){document.body.classList.toggle("dark");}
+let screen=document.getElementById("screen");
+function add(v){screen.value+=v;}
+function clearS(){screen.value="";}
+function calc(){try{screen.value=Function('"use strict";return ('+screen.value+')')();}catch{screen.value="خطأ";}}
+
+let timer,t=0;
+function start(){t=document.getElementById("time").value;timer=setInterval(()=>{if(t<=0){clearInterval(timer);t="انتهى";}document.getElementById("t").innerHTML=t;t--;},1000);}
+function stop(){clearInterval(timer);}
+function reset(){clearInterval(timer);document.getElementById("t").innerHTML="";}
+
+function age(){let b=new Date(document.getElementById("birth").value);let y=new Date().getFullYear()-b.getFullYear();document.getElementById("a").innerHTML=y+" سنة";}
+
+function days(){let s=new Date(document.getElementById("s").value);let e=new Date(document.getElementById("e").value);document.getElementById("d").innerHTML=Math.ceil((e-s)/(1000*60*60*24))+" يوم";}
+
+function conv(){let m=document.getElementById("money").value;let r=document.getElementById("cur").value;document.getElementById("c").innerHTML=(m*r).toFixed(2)+" دينار";}
+
+function openModal(id){document.getElementById(id).style.display="block";}
+function closeModal(id){document.getElementById(id).style.display="none";}
+</script>
+
+</body>
+</html>
